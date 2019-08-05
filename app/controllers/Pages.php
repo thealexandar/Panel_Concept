@@ -6,7 +6,7 @@
 
         public function index() {
             $data = [
-                'title' => 'welcome'
+                'title' => 'welcomee'
             ];
             $this->view('pages/index', $data);
         }
