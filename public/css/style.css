@@ -1,1 +1,66 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css?family=Blinker:400,700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar {
+  min-height: 100vh;
+  padding-top: 10vh;
+  font-family: 'Blinker', sans-serif;
+}
+
+#sidebar .nav-link {
+  color: #ecf0f1;
+  font-size: 1.3em;
+  border-left: 7px solid transparent;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+#sidebar .nav-link:hover {
+  border-left: 7px solid #C4E538;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#sidebar .nav-link:hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5%;
+  background: #FFF;
+  width: 10%;
+  height: 70%;
+  -webkit-transform: translateY(25%);
+          transform: translateY(25%);
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+#sidebar .active-link {
+  border-left: 7px solid #C4E538;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#sidebar .active-link:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5%;
+  background: #FFF;
+  width: 10%;
+  height: 70%;
+  -webkit-transform: translateY(25%);
+          transform: translateY(25%);
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+#main {
+  min-height: 100vh;
+  border-top-left-radius: 5%;
+}
+/*# sourceMappingURL=style.css.map */
