@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.min.css">
+
     <title><?= SITENAME; ?></title>
 </head>
 <body>
 
+<div class="container-fluid bg-dark">
+    <div class="row">

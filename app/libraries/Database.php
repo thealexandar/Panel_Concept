@@ -18,8 +18,9 @@
             // Set DSN
             $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
             $options = array(
-                PDO::ATTR_PERSISTENT => true,
-                PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION
+                PDO::ATTR_PERSISTENT => false,
+                PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION,
+                PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => false
             );
 
             // Create PDO instance
@@ -65,7 +66,7 @@
         // Get result set as array of objects
         public function resultSet(){
             $this->execute();
-            return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         // Get single record as object
