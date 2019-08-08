@@ -6,9 +6,13 @@
 
         public function index() {
             $records = $this->postModel->getRecords();
+            $link = URLROOT.$_SERVER['REQUEST_URI'];
+            $pieces = explode("/", $link);
+            $last = array_pop($pieces);
             $data = [
                 'title' => 'welcome',
-                'records' => $records
+                'records' => $records,
+                'link' => $last
             ];
 
             $this->view('pages/index', $data);
@@ -22,9 +26,15 @@
         }
 
         public function users() {
+            $link = URLROOT.$_SERVER['REQUEST_URI'];
+            $pieces = explode("/", $link);
+            $last = array_pop($pieces);
             $data = [
-                'title' => 'users'
+                'title' => 'users',
+                'link' => $last
             ];
             $this->view('pages/users', $data);
         }
+
+
     }

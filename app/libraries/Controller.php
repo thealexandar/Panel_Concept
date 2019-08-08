@@ -1,7 +1,7 @@
 <?php
     // Base controller
     // Loads the models and views
-    class Controller {
+    class Controller{
         // Load model
         public function model($model) {
             // Require model file

@@ -1,8 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Blinker:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
 body {
     margin: 0;
     padding: 0;
     //overflow-x: hidden
+}
+$text-color-light: #ecf0f1;
+.card {
+    border: none !important;
+    box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
+}
+.status-admin {
+    background-color: #34495e;
+}
+.status-user {
+    background-color: #c0392b;
+}
+.status-super-admin {
+    background-color: #f39c12;
 }
 
 #sidebar {
@@ -10,7 +27,7 @@ body {
     padding-top: 10vh;
     font-family: 'Blinker', sans-serif;
         .nav-link {
-            color: #ecf0f1;
+            color: $text-color-light;
             font-size: 1em;
             border-left: 7px solid transparent;
             padding-top: 16px;
@@ -18,6 +35,9 @@ body {
             overflow: hidden;
             position: relative;
             letter-spacing: 1px;
+            &:active {
+                background: red;
+            }
             &:hover {
                 border-left: 7px solid #d63031;
                 background: rgba(255,255,255,0.2);
@@ -53,14 +73,153 @@ body {
         }
 }
 #main {
+    font-family: 'Rubik', sans-serif;
     min-height: 100vh;
     border-top-left-radius: 5%;
-    background: #FFF;
-    padding-top: 10vh;
-        .row {
+    background: #f1f2f6;
+    padding-top: 5vh;
+    padding-left: 3%;
+        #top-cards {
+            width: 100%;
+            margin: 0;
+                .card {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 0;
+                    border: none;
+                    box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
+                    -webkit-box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
+                    color: $text-color-light;
+                        .card-content {
+                            position: relative;
+                             .icon {
+                                 position: relative;
+                                    i {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        font-size: 3em;
+                                        transform: translate(-50%, -50%);
+                                    }
+                             }
+                        }
+                }
+        }
+        #mid-charts{
             min-height: 40vh;
-                #chartdiv1, #chartdiv {
+            margin: 2% 0 0 0;
+            width: 100%;
+                .chart .users {
+                    height: 100% !important;
+                    background: #FFF;
+                }
+                .card {
                     height: 100%;
                 }
         }
+        #bot-users {
+            min-height: 40vh;
+            margin: 2% 0 0 0;
+            width: 100%;
+                span {
+                    padding: 0;
+                    border-radius: 3px;
+                    color: $text-color-light;
+                    display: inline-block;
+                    width: 100px;
+                    text-align: center;
+                }
+
+        }
+}
+
+#users {
+    min-height: 85vh;
+        #users-heading {
+            min-height: 5vh;
+            max-height: 5vh;
+        }
+        #mid-table-users {
+            min-height: 75vh;
+        }
+        .card {
+            height: 100%;
+                span {
+                    padding: 0;
+                    border-radius: 3px;
+                    color: $text-color-light;
+                    display: inline-block;
+                    width: 100px;
+                    text-align: center;
+                }
+        }
+}
+
+#register, #login {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        .card {
+            border-radius: 0;
+            width: 50vw;
+            min-height: 50vh;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+                .card-body {
+                    width: 100%;
+                        .row {
+                            width: 100%;
+                                .img {
+                                    background-image: url("../public/img/barn-owl-1180263_1280.jpg");
+                                    background-position: 15%;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    min-height: 50vh;
+                                }
+                                .col-md-7 {
+                                    position: relative;
+                                        form {
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            width: 90%;
+                                            transform: translate(-50%, -50%);
+                                                .form-control {
+                                                    border-left: none;
+                                                    border-top: none;
+                                                    border-right: none;
+                                                    border-radius: 0;
+                                                    font-size: .9em;
+                                                    &:focus {
+                                                        outline: 0 none !important;
+                                                        box-shadow: none;
+                                                    }
+                                                }
+                                                .btn {
+                                                    border: none;
+                                                    border-radius: 0;
+                                                    width: 100%;
+                                                    background: #34495e;
+                                                }
+                                        }
+                                }
+
+
+                        }
+                }
+
+        }
+
+}
+#login {
+    .img {
+        background-image: url("../public/img/owl-171646_1280.jpg") !important;
+    }
+
 }

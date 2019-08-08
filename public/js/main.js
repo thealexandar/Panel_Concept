@@ -1,18 +1,21 @@
 
 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart1').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
-    type: 'line',
+    type: 'pie',
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March'],
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            backgroundColor: ['rgb(255, 99, 132)',
+                              '#81ecec',
+                              '#fdcb6e'
+                             ],
+            borderColor: '#FFF',
+            data: [2, 10, 5]
         }]
     },
 
@@ -21,4 +24,29 @@ var chart = new Chart(ctx, {
 });
 
 
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['Aleksandar', 'Nikola', 'Nemanja', 'Sanja', 'Jovana'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(255, 99, 132)',
+                              '#81ecec',
+                              '#d63031',
+                              '#a29bfe',
+                              '#fdcb6e',
+                              '#d63031'
+                             ],
+            borderColor: '#FFF',
+            data: [2, 10, 5, 3, 6, 8]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
 

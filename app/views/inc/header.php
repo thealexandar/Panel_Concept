@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/style.css">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title><?= SITENAME; ?></title>
 </head>

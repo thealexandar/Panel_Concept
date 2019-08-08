@@ -3,7 +3,7 @@
     // URL & Core controller
 class Core {
     protected $currentController = 'Pages';
-    protected $currentMethod = 'index';
+    public $currentMethod = 'index';
     protected $params = [];
 
     public function __construct() {
@@ -46,4 +46,6 @@ class Core {
         return $url;
       }
     }
+
+
 }
