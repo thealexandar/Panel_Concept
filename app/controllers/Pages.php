@@ -2,6 +2,10 @@
     class Pages extends Controller {
         public function __construct() {
             $this->postModel = $this->model('Test');
+
+            if(!isset($_SESSION['user_id'])) {
+                redirect('users/login');
+            }
         }
 
         public function index() {

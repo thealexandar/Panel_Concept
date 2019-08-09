@@ -1,7 +1,9 @@
 <div id="sidebar" class="col-md-2 bg-dark pl-0 pr-0 fixed-top">
     <div class="welcome">
         <h3>Welcome</h3>
-        <h4><?php echo $_SESSION['user_name']; ?></h4>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <h4><?php echo $_SESSION['user_name']; ?></h4>
+        <?php endif; ?>
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
