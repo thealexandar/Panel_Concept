@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-        <div id="main" class="col-md-10">
+        <div id="main" class="col-md-10 offset-md-2">
             <div class="row" id="users">
                 <div class="col-md-12">
                     <div class="card">
