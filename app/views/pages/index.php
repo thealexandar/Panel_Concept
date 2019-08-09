@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
-        <div id="main" class="col-md-10">
+        <div id="main" class="col-md-10 offset-md-2">
             <div class="row" id="top-cards">
                 <div class="col-md-4 pl-0">
                     <div class="card" style="background: #654ea3; background: -webkit-linear-gradient(to bottom, #eaafc8, #654ea3); background: linear-gradient(to bottom, #eaafc8, #654ea3);">

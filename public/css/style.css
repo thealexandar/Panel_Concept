@@ -26,7 +26,7 @@ body {
 
 #sidebar {
   min-height: 100vh;
-  padding-top: 10vh;
+  padding-top: 5vh;
   font-family: 'Blinker', sans-serif;
 }
 
@@ -83,10 +83,51 @@ body {
           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
+#sidebar .welcome {
+  margin-bottom: 20%;
+}
+
+#sidebar .welcome h4, #sidebar .welcome h3 {
+  color: #ecf0f1;
+  text-align: center;
+}
+
+#sidebar .welcome h3 {
+  letter-spacing: 1px;
+}
+
+#sidebar .logout {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+}
+
+#sidebar .logout .btn-logout {
+  width: 40px;
+  margin-left: 10%;
+}
+
+#sidebar .logout .btn-logout a {
+  text-decoration: none;
+}
+
+#sidebar .logout .btn-logout a:hover span {
+  color: #d63031;
+}
+
+#sidebar .logout .btn-logout img {
+  width: 100%;
+  margin-left: 7%;
+}
+
+#sidebar .logout .btn-logout span {
+  color: #ecf0f1;
+}
+
 #main {
   font-family: 'Rubik', sans-serif;
   min-height: 100vh;
-  border-top-left-radius: 5%;
   background: #f1f2f6;
   padding-top: 5vh;
   padding-left: 3%;
@@ -182,6 +223,7 @@ body {
 }
 
 #register, #login {
+  font-family: 'Blinker', sans-serif;
   min-height: 100vh;
   width: 100vw;
   position: relative;
@@ -213,7 +255,7 @@ body {
 }
 
 #register .card .card-body .row .img, #login .card .card-body .row .img {
-  background-image: url("../public/img/barn-owl-1180263_1280.jpg");
+  background-image: url("../public/img/barn-owl-1180263_1280-min.jpg");
   background-position: 15%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -224,13 +266,20 @@ body {
   position: relative;
 }
 
-#register .card .card-body .row .col-md-7 form, #login .card .card-body .row .col-md-7 form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+#register .card .card-body .row .col-md-7 p, #register .card .card-body .row .col-md-7 h2, #login .card .card-body .row .col-md-7 p, #login .card .card-body .row .col-md-7 h2 {
+  line-height: 1em;
+}
+
+#register .card .card-body .row .col-md-7 p, #login .card .card-body .row .col-md-7 p {
+  letter-spacing: 2px;
+  font-size: 0.8em;
+  color: #74b9ff;
+}
+
+#register .card .card-body .row .col-md-7 h2, #login .card .card-body .row .col-md-7 h2 {
+  letter-spacing: 3px;
+  font-size: 2.5em;
+  color: #0984e3;
 }
 
 #register .card .card-body .row .col-md-7 form .form-control, #login .card .card-body .row .col-md-7 form .form-control {
@@ -252,9 +301,14 @@ body {
   border-radius: 0;
   width: 100%;
   background: #34495e;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  letter-spacing: 1px;
 }
 
-#login .img {
-  background-image: url("../public/img/owl-171646_1280.jpg") !important;
+#register .card .card-body .row .col-md-7 form .btn:hover, #login .card .card-body .row .col-md-7 form .btn:hover {
+  opacity: 0.9;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
 }
 /*# sourceMappingURL=style.css.map */

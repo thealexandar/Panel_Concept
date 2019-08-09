@@ -21,10 +21,9 @@ $text-color-light: #ecf0f1;
 .status-super-admin {
     background-color: #f39c12;
 }
-
 #sidebar {
     min-height: 100vh;
-    padding-top: 10vh;
+    padding-top: 5vh;
     font-family: 'Blinker', sans-serif;
         .nav-link {
             color: $text-color-light;
@@ -71,11 +70,44 @@ $text-color-light: #ecf0f1;
                 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             }
         }
+        .welcome {
+            margin-bottom: 20%;
+            h4, h3 {
+                color: $text-color-light;
+                text-align: center;
+            }
+            h3 {
+                letter-spacing: 1px;
+            }
+        }
+        .logout {
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            width: 100%;
+                .btn-logout {
+                    width: 40px;
+                    margin-left: 10%;
+                        a {
+                            text-decoration: none;
+                            &:hover span {
+                                color: #d63031;
+                            }
+                        }
+                        img {
+                            width: 100%;
+                            margin-left: 7%;
+                        }
+                        span {
+                            color: $text-color-light;
+                        }
+                }
+        }
 }
 #main {
     font-family: 'Rubik', sans-serif;
     min-height: 100vh;
-    border-top-left-radius: 5%;
+
     background: #f1f2f6;
     padding-top: 5vh;
     padding-left: 3%;
@@ -157,6 +189,7 @@ $text-color-light: #ecf0f1;
 }
 
 #register, #login {
+    font-family: 'Blinker', sans-serif;
     min-height: 100vh;
     width: 100vw;
     position: relative;
@@ -176,7 +209,7 @@ $text-color-light: #ecf0f1;
                         .row {
                             width: 100%;
                                 .img {
-                                    background-image: url("../public/img/barn-owl-1180263_1280.jpg");
+                                    background-image: url("../public/img/barn-owl-1180263_1280-min.jpg");
                                     background-position: 15%;
                                     background-repeat: no-repeat;
                                     background-size: cover;
@@ -184,12 +217,22 @@ $text-color-light: #ecf0f1;
                                 }
                                 .col-md-7 {
                                     position: relative;
+                                        p, h2 {
+                                            line-height: 1em;
+
+                                        }
+                                        p {
+                                            letter-spacing: 2px;
+                                            font-size: 0.8em;
+                                            color: #74b9ff;
+                                        }
+                                        h2 {
+                                            letter-spacing: 3px;
+                                            font-size: 2.5em;
+                                            color: #0984e3;
+                                        }
                                         form {
-                                            position: absolute;
-                                            top: 50%;
-                                            left: 50%;
-                                            width: 90%;
-                                            transform: translate(-50%, -50%);
+
                                                 .form-control {
                                                     border-left: none;
                                                     border-top: none;
@@ -206,6 +249,12 @@ $text-color-light: #ecf0f1;
                                                     border-radius: 0;
                                                     width: 100%;
                                                     background: #34495e;
+                                                    transition: all 200ms;
+                                                    letter-spacing: 1px;
+                                                    &:hover {
+                                                        opacity: 0.9;
+                                                        transition: all 200ms;
+                                                    }
                                                 }
                                         }
                                 }
@@ -218,8 +267,6 @@ $text-color-light: #ecf0f1;
 
 }
 #login {
-    .img {
-        background-image: url("../public/img/owl-171646_1280.jpg") !important;
-    }
+
 
 }
