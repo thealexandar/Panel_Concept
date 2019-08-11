@@ -51,6 +51,13 @@
             }
         }
 
+        public function getAllUsersCount(){
+            $this->db->query("SELECT COUNT(id) registered_users FROM users");
+            $res = $this->db->resultSet();
+            return $res;
+
+        }
+
         public function getCountryCount(){
             $this->db->query("SELECT country, COUNT(country) AS Total FROM users GROUP BY country");
             $res = $this->db->resultSet();
@@ -63,7 +70,6 @@
         public function getUserRole(){
             $this->db->query("SELECT role, COUNT(role) AS Total FROM users GROUP BY role");
             $res = $this->db->resultSet();
-
             $json = json_encode($res);
             file_put_contents(APPROOT . '/data/roles.json', $json);
         }

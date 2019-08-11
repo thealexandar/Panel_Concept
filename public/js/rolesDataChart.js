@@ -13,10 +13,16 @@ am4core.ready(function() {
 
     chartRoles.legend = new am4charts.Legend();
 
+    chartRoles.innerRadius = am4core.percent(40);
+
+
+
      // Create series
     var series = chartRoles.series.push(new am4charts.PieSeries3D());
     series.dataFields.value = "Total";
     series.dataFields.category = "roles";
+
+    chartRoles.slices.template.tooltipText = "{roles}: {total}";
 
     // Add a legend
     chartRoles.legend = new am4charts.Legend();

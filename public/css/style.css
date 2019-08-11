@@ -184,6 +184,11 @@ body {
   background: #FFF;
 }
 
+#main #mid-charts .chart #chartdivRoles {
+  height: 100%;
+  width: 100%;
+}
+
 #main #mid-charts .card {
   height: 100%;
 }

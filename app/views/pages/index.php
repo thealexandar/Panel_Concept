@@ -3,9 +3,6 @@
 
 
         <div id="main" class="col-md-10 offset-md-2">
-        <?php
-
-        ?>
             <div class="row" id="top-cards">
                 <div class="col-md-4 pl-0">
                     <div class="card" style="background: #654ea3; background: -webkit-linear-gradient(to bottom, #eaafc8, #654ea3); background: linear-gradient(to bottom, #eaafc8, #654ea3);">
@@ -14,9 +11,9 @@
                                 <div class="col-md-4 icon">
                                     <i class="material-icons">group</i>
                                 </div>
-                                <div class="col-md-8 info">
-                                    <p class="mb-0">Lorem ipsum</p>
-                                    <h3>100.00</h3>
+                                <div class="col-md-8 info text-center">
+                                    <p class="mb-0">Registered Users</p>
+                                    <h3><?php echo $data['userCount'][0]->registered_users; ?></h3>
                                 </div>
                             </div>
                         </div>

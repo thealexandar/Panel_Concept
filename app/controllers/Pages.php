@@ -14,11 +14,13 @@
             $last = array_pop($pieces);
             $users = $this->postModel->getCountryCount();
             $roles = $this->postModel->getUserRole();
+            $userCount = $this->postModel->getAllUsersCount();
             $data = [
                 'title' => 'welcome',
                 'users' => $users,
                 'link' => $last,
-                'roles' => $roles
+                'roles' => $roles,
+                'userCount' => $userCount
             ];
             $this->view('pages/index', $data);
         }
