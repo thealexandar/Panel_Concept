@@ -14,9 +14,13 @@
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-
 <script src="<?= URLROOT; ?>/js/main.js"></script>
+<script src="<?= URLROOT; ?>/js/rolesDataChart.js"></script>
+
+<script>
+
+</script>
+
+
 </body>
 </html>

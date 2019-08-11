@@ -50,4 +50,21 @@
                 return false;
             }
         }
+
+        public function getCountryCount(){
+            $this->db->query("SELECT country, COUNT(country) AS Total FROM users GROUP BY country");
+            $res = $this->db->resultSet();
+
+            $json = json_encode($res);
+            file_put_contents(APPROOT . '/data/data.json', $json);
+
+        }
+
+        public function getUserRole(){
+            $this->db->query("SELECT role, COUNT(role) AS Total FROM users GROUP BY role");
+            $res = $this->db->resultSet();
+
+            $json = json_encode($res);
+            file_put_contents(APPROOT . '/data/roles.json', $json);
+        }
     }

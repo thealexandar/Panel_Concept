@@ -5,12 +5,16 @@ body {
     padding: 0;
     //overflow-x: hidden
 }
-$text-color-light: #ecf0f1;
+#chartdiv {
+    width: 100%;
+    height: 100%;
+  }
 .card {
     border: none !important;
     box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
     -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
     -moz-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.64);
+    border-radius: 0;
 }
 .status-admin {
     background-color: #34495e;
@@ -25,8 +29,9 @@ $text-color-light: #ecf0f1;
     min-height: 100vh;
     padding-top: 5vh;
     font-family: 'Blinker', sans-serif;
+    background: #2c3e50;
         .nav-link {
-            color: $text-color-light;
+            color: #ecf0f1;
             font-size: 1em;
             border-left: 7px solid transparent;
             padding-top: 16px;
@@ -66,14 +71,13 @@ $text-color-light: #ecf0f1;
                 width: 10%;
                 height: 70%;
                 transform: translateY(25%);
-
                 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             }
         }
         .welcome {
             margin-bottom: 20%;
             h4, h3 {
-                color: $text-color-light;
+                color: #ecf0f1;
                 text-align: center;
             }
             h3 {
@@ -99,7 +103,7 @@ $text-color-light: #ecf0f1;
                             margin-left: 7%;
                         }
                         span {
-                            color: $text-color-light;
+                            color: #ecf0f1;
                         }
                 }
         }
@@ -122,7 +126,7 @@ $text-color-light: #ecf0f1;
                     box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
                     -webkit-box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
                     -moz-box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.75);
-                    color: $text-color-light;
+                    color: #ecf0f1;
                         .card-content {
                             position: relative;
                              .icon {
@@ -157,7 +161,7 @@ $text-color-light: #ecf0f1;
                 span {
                     padding: 0;
                     border-radius: 3px;
-                    color: $text-color-light;
+                    color: #ecf0f1;
                     display: inline-block;
                     width: 100px;
                     text-align: center;
@@ -180,7 +184,7 @@ $text-color-light: #ecf0f1;
                 span {
                     padding: 0;
                     border-radius: 3px;
-                    color: $text-color-light;
+                    color: #ecf0f1;
                     display: inline-block;
                     width: 100px;
                     text-align: center;

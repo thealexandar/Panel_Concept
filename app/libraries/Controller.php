@@ -21,4 +21,14 @@
                 die('View does not exists');
             }
         }
+
+        public function loadJson($jsonFile) {
+            // Check for view file
+            if(file_exists('../app/data/' . $jsonFile . '.json')) {
+                require_once '../app/data/' . $jsonFile . '.json';
+            } else {
+                // View does not exists
+                die('View does not exists');
+            }
+        }
     }

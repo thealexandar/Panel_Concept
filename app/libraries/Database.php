@@ -20,7 +20,8 @@
             $options = array(
                 PDO::ATTR_PERSISTENT => false,
                 PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION,
-                PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => false
+                PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => false,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
             );
 
             // Create PDO instance
@@ -66,13 +67,17 @@
         // Get result set as array of objects
         public function resultSet(){
             $this->execute();
-            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $this->stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
         // Get single record as object
         public function single(){
             $this->execute();
             return $this->stmt->fetch(PDO::FETCH_OBJ);
+        }
+
+        public function setFetch(){
+            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         // Get row count

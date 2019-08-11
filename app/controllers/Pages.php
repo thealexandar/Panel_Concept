@@ -1,7 +1,7 @@
 <?php
     class Pages extends Controller {
         public function __construct() {
-            $this->postModel = $this->model('Test');
+            $this->postModel = $this->model('User');
 
             if(!isset($_SESSION['user_id'])) {
                 redirect('users/login');
@@ -9,24 +9,26 @@
         }
 
         public function index() {
-            $records = $this->postModel->getRecords();
             $link = URLROOT.$_SERVER['REQUEST_URI'];
             $pieces = explode("/", $link);
             $last = array_pop($pieces);
+            $users = $this->postModel->getCountryCount();
+            $roles = $this->postModel->getUserRole();
             $data = [
                 'title' => 'welcome',
-                'records' => $records,
-                'link' => $last
+                'users' => $users,
+                'link' => $last,
+                'roles' => $roles
             ];
-
             $this->view('pages/index', $data);
         }
-
-        public function about() {
-            $data = [
-                'title' => 'About Us'
-            ];
-            $this->view('pages/about', $data);
+        // Load JSON data
+        public function data() {
+            $this->loadJson('data');
+        }
+        // Load JSON data
+        public function roles() {
+            $this->loadJson('roles');
         }
 
         public function users() {

@@ -1,7 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
+
         <div id="main" class="col-md-10 offset-md-2">
+        <?php
+
+        ?>
             <div class="row" id="top-cards">
                 <div class="col-md-4 pl-0">
                     <div class="card" style="background: #654ea3; background: -webkit-linear-gradient(to bottom, #eaafc8, #654ea3); background: linear-gradient(to bottom, #eaafc8, #654ea3);">
@@ -53,16 +57,16 @@
                 <div class="col-md-8 pl-0 users">
                     <div class="card">
                         <div class="card-body">
-                            <canvas id="myChart"></canvas>
+                            <div id="chartdiv"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 pr-0 chart">
                     <div class="card">
                         <div class="card-body">
-                            <canvas id="myChart1"></canvas>
+                            <div id="chartdivRoles"></div>
                         </div>
-                        <div class="card-footer bg-white">
+                        <!-- <div class="card-footer bg-white">
                             <table class="table">
                                 <tbody>
                                     <tr>
@@ -85,7 +89,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
