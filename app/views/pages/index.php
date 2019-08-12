@@ -63,30 +63,6 @@
                         <div class="card-body">
                             <div id="chartdivRoles"></div>
                         </div>
-                        <!-- <div class="card-footer bg-white">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td><span class="status-admin">admin</span></td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td><span class="status-user">user</span></td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td><span class="status-super-admin">super admin</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -95,27 +71,29 @@
                     <div class="card">
                         <div class="card-body">
                             <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">Role</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
+                                <?php foreach($data['users'] as $user): ?>
                                     <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td><span class="status-admin">admin</span></td>
+                                    <th scope="row"><?= $user->id; ?></th>
+                                    <td><?= $user->name; ?></td>
+                                    <td><?= $user->country; ?></td>
+                                    <td><span class="status-<?= $user->role;?>"><?= $user->role; ?></span></td>
                                     </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td><span class="status-user">user</span></td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td><span class="status-super-admin">super admin</span></td>
-                                    </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="col-12 text-center">
+                                <a href="<?= URLROOT; ?>/pages/users" class="btn btn-outline-primary custom-btn">View All</a>
+                            </div>
+
                         </div>
                     </div>
 

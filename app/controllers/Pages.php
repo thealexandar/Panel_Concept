@@ -12,15 +12,18 @@
             $link = URLROOT.$_SERVER['REQUEST_URI'];
             $pieces = explode("/", $link);
             $last = array_pop($pieces);
-            $users = $this->postModel->getCountryCount();
-            $roles = $this->postModel->getUserRole();
-            $userCount = $this->postModel->getAllUsersCount();
+
+            $countries  = $this->postModel->getCountryCount();
+            $roles      = $this->postModel->getUserRole();
+            $userCount  = $this->postModel->getAllUsersCount();
+            $users      = $this->postModel->getAllUsersLimit();
             $data = [
                 'title' => 'welcome',
-                'users' => $users,
+                'countries' => $countries,
                 'link' => $last,
                 'roles' => $roles,
-                'userCount' => $userCount
+                'userCount' => $userCount,
+                'users' => $users
             ];
             $this->view('pages/index', $data);
         }
@@ -34,12 +37,18 @@
         }
 
         public function users() {
-            $link = URLROOT.$_SERVER['REQUEST_URI'];
+            $link   = URLROOT.$_SERVER['REQUEST_URI'];
             $pieces = explode("/", $link);
-            $last = array_pop($pieces);
+            $last   = array_pop($pieces);
+
+            $pagination = $this->postModel->pagination();
+            $users  = $this->postModel->getAllUsers();
+
             $data = [
                 'title' => 'users',
-                'link' => $last
+                'link' => $last,
+                'users' => $users,
+                'pagination' => $pagination
             ];
             $this->view('pages/users', $data);
         }

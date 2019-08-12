@@ -1,6 +1,7 @@
 <?php
     class User {
         private $db;
+        private $total_records_per_page = 3;
 
         public function __construct(){
             $this->db = new Database;
@@ -51,6 +52,18 @@
             }
         }
 
+        public  function getAllUsers(){
+            $this->db->query("SELECT * FROM users");
+            $rows = $this->db->resultSet();
+            return $rows;
+        }
+
+        public  function getAllUsersLimit(){
+            $this->db->query("SELECT * FROM users LIMIT 10");
+            $rows = $this->db->resultSet();
+            return $rows;
+        }
+
         public function getAllUsersCount(){
             $this->db->query("SELECT COUNT(id) registered_users FROM users");
             $res = $this->db->resultSet();
@@ -73,4 +86,53 @@
             $json = json_encode($res);
             file_put_contents(APPROOT . '/data/roles.json', $json);
         }
+
+        public function pagination(){
+            $data = array();
+            // Get page number
+            if(isset($_GET['page_no']) && $_GET['page_no']!=""){
+                $page_no = $_GET['page_no'];
+            } else {
+                $page_no = 1;
+            }
+
+
+            // Calculate offset value and set prev and next page variables
+            $offset = ($page_no-1) * $this->total_records_per_page;
+            $previous_page = $page_no - 1;
+            $next_page = $page_no + 1;
+            $adjacents = "2";
+
+            // Get total number of pages
+            $total_records = $this->countTotalRecords();
+            $total_no_of_pages = ceil($this->countTotalRecords() / $this->total_records_per_page);
+            $second_last = $total_no_of_pages -1;
+
+            // Fetching limit and offset clause for pagination
+            $this->db->query("SELECT * FROM users LIMIT :offset, :total_records_per_page");
+            $this->db->bind(':offset', $offset);
+            $this->db->bind(':total_records_per_page', $this->total_records_per_page);
+            $res = $this->db->resultSet();
+            $data = [
+                'page_no' => $page_no,
+                'previous' => $previous_page,
+                'next' => $next_page,
+                'total_records' => $total_records,
+                'total_no_of_pages' => $total_no_of_pages,
+                'second_last' => $second_last,
+                'user_data' => $res
+            ];
+            return $data;
+
+        }
+
+        // Get total records
+        public function countTotalRecords(){
+            $this->db->query("SELECT COUNT(*) AS total_records FROM users");
+            $res = $this->db->resultSet();
+            $total_records = $res[0]->total_records;
+            return $total_records;
+        }
+
+
     }
