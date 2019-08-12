@@ -41,7 +41,11 @@ body {
 }
 
 .status-tester {
-  background-color: #f39c12;
+  background-color: #00b894;
+}
+
+.status-head_admin {
+  background-color: #eccc68;
 }
 
 #sidebar {
@@ -188,7 +192,7 @@ body {
 }
 
 #main #mid-charts {
-  min-height: 40vh;
+  min-height: 60vh;
   margin: 2% 0 0 0;
   width: 100%;
 }
@@ -246,6 +250,20 @@ body {
   display: inline-block;
   width: 100px;
   text-align: center;
+}
+
+#pagination .disabled .page-link {
+  color: #373B44 !important;
+}
+
+#pagination .page-link {
+  color: #c0392b;
+}
+
+#pagination .page-link:focus {
+  outline: 0 none !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 #register, #login {

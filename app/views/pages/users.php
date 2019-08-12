@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 mt-2 pl-0 pr-0 clearfix">
+            <div class="col-12 mt-2 pl-0 pr-0 clearfix" id="pagination">
                 <nav aria-label="..." class="float-left">
                     <ul class="pagination">
                         <?php if($data['pagination']['page_no'] > 1): ?>

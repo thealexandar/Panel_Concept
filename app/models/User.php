@@ -1,7 +1,7 @@
 <?php
     class User {
         private $db;
-        private $total_records_per_page = 3;
+        private $total_records_per_page = 9;
 
         public function __construct(){
             $this->db = new Database;
@@ -59,7 +59,7 @@
         }
 
         public  function getAllUsersLimit(){
-            $this->db->query("SELECT * FROM users LIMIT 10");
+            $this->db->query("SELECT * FROM users LIMIT 5");
             $rows = $this->db->resultSet();
             return $rows;
         }
@@ -72,7 +72,7 @@
         }
 
         public function getCountryCount(){
-            $this->db->query("SELECT country, COUNT(country) AS Total FROM users GROUP BY country");
+            $this->db->query("SELECT country, COUNT(country) AS Total FROM users GROUP BY country LIMIT 20");
             $res = $this->db->resultSet();
 
             $json = json_encode($res);
@@ -109,7 +109,7 @@
             $second_last = $total_no_of_pages -1;
 
             // Fetching limit and offset clause for pagination
-            $this->db->query("SELECT * FROM users LIMIT :offset, :total_records_per_page");
+            $this->db->query("SELECT * FROM users ORDER BY created_at DESC LIMIT :offset, :total_records_per_page");
             $this->db->bind(':offset', $offset);
             $this->db->bind(':total_records_per_page', $this->total_records_per_page);
             $res = $this->db->resultSet();

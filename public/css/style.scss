@@ -35,7 +35,10 @@ body {
     background-color: #34495e;
 }
 .status-tester {
-    background-color: #f39c12;
+    background-color: #00b894;
+}
+.status-head_admin {
+    background-color: #eccc68;
 }
 #sidebar {
     min-height: 100vh;
@@ -155,7 +158,7 @@ body {
                 }
         }
         #mid-charts{
-            min-height: 40vh;
+            min-height: 60vh;
             margin: 2% 0 0 0;
             width: 100%;
                 .chart .users {
@@ -209,7 +212,21 @@ body {
                 }
         }
 }
+#pagination {
+    .disabled {
+        .page-link {
+            color: #373B44 !important;
+        }
 
+    }
+    .page-link {
+        color: #c0392b;
+        &:focus {
+            outline: 0 none !important;
+            box-shadow: none;
+        }
+    }
+}
 #register, #login {
     font-family: 'Blinker', sans-serif;
     min-height: 100vh;
