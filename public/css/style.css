@@ -153,6 +153,7 @@ body {
 #main {
   font-family: 'Rubik', sans-serif;
   min-height: 100vh;
+  border-top-left-radius: 5%;
   background: #f1f2f6;
   padding-top: 5vh;
   padding-left: 3%;
