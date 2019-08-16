@@ -1,4 +1,4 @@
-<div id="sidebar" class="col-md-2 pl-0 pr-0 fixed-top">
+<div id="sidebar" class="col-md-2 pl-0 pr-0 fixed-top sidebar sidebar-closed">
     <div class="welcome">
         <h3>Welcome</h3>
         <?php if(isset($_SESSION['user_id'])): ?>

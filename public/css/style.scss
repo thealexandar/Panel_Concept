@@ -5,11 +5,26 @@ body {
     padding: 0;
     //overflow-x: hidden
 }
+$small: 768px;
+
+@mixin small {
+    @media (max-width: #{$small}) {
+        @content;
+    }
+}
+.sidebar-closed {
+    transform: translateX(-100%);
+    transition: all 600ms cubic-bezier(0.68, 0.02, 0.19, 0.99);
+}
+.sidebar-open {
+    transform: translateX(-30%);
+    transition: all 600ms cubic-bezier(0.68, 0.02, 0.19, 0.99);
+}
 #chartdiv {
     width: 100%;
     height: 100%;
 }
-.custom-btn {
+.custom-btn-outline {
     border-color: #c0392b !important;
     color: #c0392b !important;
     border-radius: 20px !important;
@@ -17,6 +32,19 @@ body {
     padding-right: 20px !important;
     &:hover {
         background: #c0392b !important;
+        border-color: #c0392b !important;
+        color: #ecf0f1 !important;
+    }
+}
+.custom-btn {
+    border-color: #c0392b !important;
+    color: #ecf0f1 !important;
+    border-radius: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background: #c0392b !important;
+    &:hover {
+        opacity: 0.7;
         border-color: #c0392b !important;
         color: #ecf0f1 !important;
     }
@@ -40,11 +68,23 @@ body {
 .status-head_admin {
     background-color: #eccc68;
 }
+.navbar {
+    i {
+        font-size: 1.5em;
+    }
+}
 #sidebar {
     min-height: 100vh;
     padding-top: 5vh;
     font-family: 'Blinker', sans-serif;
     background: #2c3e50;
+        @include small {
+            .nav {
+                padding-left: 32%;
+            }
+
+
+        }
         .nav-link {
             color: #ecf0f1;
             font-size: 1em;
@@ -122,6 +162,9 @@ body {
                         }
                 }
         }
+        @include small {
+
+        }
 }
 #main {
     font-family: 'Rubik', sans-serif;
@@ -130,6 +173,16 @@ body {
     background: #f1f2f6;
     padding-top: 5vh;
     padding-left: 3%;
+        @include small {
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 20px;
+
+                .col-md-4, .col-md-6, .col-md-8 {
+                    margin-bottom: 15px;
+                }
+        }
         #top-cards {
             width: 100%;
             margin: 0;
@@ -147,11 +200,7 @@ body {
                              .icon {
                                  position: relative;
                                     i {
-                                        position: absolute;
-                                        top: 50%;
-                                        left: 50%;
                                         font-size: 3em;
-                                        transform: translate(-50%, -50%);
                                     }
                              }
                         }
@@ -161,6 +210,15 @@ body {
             min-height: 60vh;
             margin: 2% 0 0 0;
             width: 100%;
+                @include small {
+                    .users, .chart {
+                        min-height: 70vh;
+                            .card-body {
+                                padding-left: 0;
+                                padding-right: 0;
+                            }
+                    }
+                }
                 .chart .users {
                     height: 100% !important;
                     background: #FFF;
@@ -179,26 +237,58 @@ body {
             min-height: 40vh;
             margin: 2% 0 0 0;
             width: 100%;
+                @include small {
+
+                }
                 span {
-                    padding: 0;
+                    padding-left: 5px;
+                    padding-right: 5px;
                     border-radius: 3px;
                     color: #ecf0f1;
                     display: inline-block;
-                    width: 100px;
                     text-align: center;
                 }
 
         }
+        .modal-content {
+            border: none;
+                label {
+                    margin-bottom: 0;
+                }
+                .form-control {
+                    border-left: none;
+                    border-top: none;
+                    border-right: none;
+                    border-radius: 0;
+                    font-size: .9em;
+                    &:focus {
+                        outline: 0 none !important;
+                        box-shadow: none;
+                    }
+                }
+        }
+
 }
 
 #users {
-    min-height: 85vh;
+    min-height: 80vh;
+
+        .fas {
+            font-size: 1.2em;
+        }
+        .fa-trash {
+            color: #c0392b;
+        }
+        .fa-pen {
+            color: #2980b9;
+        }
         #users-heading {
             min-height: 5vh;
             max-height: 5vh;
         }
         #mid-table-users {
             min-height: 75vh;
+
         }
         .card {
             height: 100%;

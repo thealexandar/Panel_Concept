@@ -96,7 +96,6 @@
                 $page_no = 1;
             }
 
-
             // Calculate offset value and set prev and next page variables
             $offset = ($page_no-1) * $this->total_records_per_page;
             $previous_page = $page_no - 1;
@@ -132,6 +131,28 @@
             $res = $this->db->resultSet();
             $total_records = $res[0]->total_records;
             return $total_records;
+        }
+
+        public function adduser($data){
+            $this->db->query('INSERT INTO users (name, email, password, country, role) VALUES (:name, :email, :password, :country, :role)');
+
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':role', $data['role']);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function deleteUser($id){
+            $this->db->query("DELETE * FROM users WHERE id = :id");
+            $this->db->bind(":id", $id);
+
         }
 
 

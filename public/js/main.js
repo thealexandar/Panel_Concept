@@ -56,3 +56,29 @@ am4core.ready(function() {
 
 
 
+    var $btnMenu  = $(".btn-menu");
+    var $sidebar   = $(".sidebar");
+
+    $btnMenu.on("click", function(e) {
+      $sidebar.toggleClass("sidebar-open sidebar-closed");
+    });
+
+
+    (function($) {
+      var $window = $(window),
+          $sidebar = $('.sidebar');
+
+      function resize() {
+          if ($window.width() > 768) {
+              return $sidebar.removeClass('sidebar-closed');
+          } else {
+            return $sidebar.addClass('sidebar-closed');
+          }
+
+          $html.addClass('sidebar-open');
+      }
+
+      $window
+          .resize(resize)
+          .trigger('resize');
+  })(jQuery);

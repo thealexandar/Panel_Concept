@@ -193,4 +193,60 @@
                 return false;
             }
         }
+
+        // public function addNewUser(){
+        //     // Check for post
+        //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //         // Process form
+        //         // Sanitize POST data
+        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //         // Init data
+        //         $data = [
+        //             'name'      => trim($_POST['name']),
+        //             'email'     => trim($_POST['email']),
+        //             'password'  => trim($_POST['password']),
+        //             'country'   => trim($_POST['country']),
+        //             'role'      => trim($_POST['role']),
+        //             'email_err' => ''
+        //         ];
+
+        //         // Validate name
+        //         if(empty($data['email'])){
+        //             if($this->userModel->findUserByEmail($data['email'])){
+        //                 $data['email_err'] = 'Email is already taken';
+        //             }
+        //         }
+
+        //         // Make sure errors are empty
+        //         if(empty($data['email_err'])){
+        //             // Hash passowrd
+        //             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+        //             // Add user
+        //             if($this->userModel->adduser($data)) {
+        //                 flash('add_success', 'User added');
+        //                 redirect('pages/users');
+        //             } else {
+        //                 die('something went wrong');
+        //             }
+        //         } else {
+        //             // Load view with errors
+        //             $this->view('pages/users', $data);
+        //         }
+        //     } else {
+        //         // Init data
+        //         $data =[
+        //             'name' => '',
+        //             'email' => '',
+        //             'password' => '',
+        //             'country' => '',
+        //             'role' => '',
+        //             'email_err' => ''
+        //         ];
+
+        //          // Load view
+        //          $this->view('pages/users', $data);
+        //     }
+        // }
     }
