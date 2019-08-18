@@ -2,6 +2,15 @@
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
         <div id="main" class="col-md-10 offset-md-2">
+        <div class="row bg-light d-sm-none navbar  mb-4">
+            <div class="logo col-6">Dashboard</div>
+            <div class="col-6 menu text-right">
+                <div class="btn-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+            </div>
+        </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">

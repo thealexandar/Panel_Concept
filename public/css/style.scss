@@ -68,11 +68,7 @@ $small: 768px;
 .status-head_admin {
     background-color: #eccc68;
 }
-.navbar {
-    i {
-        font-size: 1.5em;
-    }
-}
+
 #sidebar {
     min-height: 100vh;
     padding-top: 5vh;
@@ -162,9 +158,7 @@ $small: 768px;
                         }
                 }
         }
-        @include small {
 
-        }
 }
 #main {
     font-family: 'Rubik', sans-serif;
@@ -177,11 +171,17 @@ $small: 768px;
             border-radius: 0;
             padding-left: 0;
             padding-right: 0;
-            padding-top: 20px;
-
+            padding-top: 0;
                 .col-md-4, .col-md-6, .col-md-8 {
                     margin-bottom: 15px;
                 }
+        }
+        .navbar {
+            width: 100%;
+            margin-right: 0;
+            i {
+                font-size: 1.5em;
+            }
         }
         #top-cards {
             width: 100%;
@@ -333,6 +333,9 @@ $small: 768px;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            @include small {
+                width: 90vw;
+            }
                 .card-body {
                     width: 100%;
                         .row {
@@ -343,6 +346,11 @@ $small: 768px;
                                     background-repeat: no-repeat;
                                     background-size: cover;
                                     min-height: 50vh;
+                                    @include small {
+                                        min-height: 30vh;
+                                        max-height: 30vh;
+                                        background-position: center 20%;
+                                    }
                                 }
                                 .col-md-7 {
                                     position: relative;

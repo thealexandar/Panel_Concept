@@ -3,6 +3,15 @@
 
 
         <div id="main" class="col-md-10 offset-md-2">
+            <div class="row bg-light d-sm-none navbar pr-0 pl-0 mb-4">
+            <div class="logo col-6">Dashboard</div>
+            <div class="col-6 menu text-right">
+                <div class="btn-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+            </div>
+        </div>
             <div class="row" id="top-cards">
                 <div class="col-md-4 pl-3 pl-sm-0">
                     <div class="card" style="background: #654ea3; background: -webkit-linear-gradient(to bottom, #eaafc8, #654ea3); background: linear-gradient(to bottom, #eaafc8, #654ea3);">

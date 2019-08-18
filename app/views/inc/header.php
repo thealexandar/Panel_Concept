@@ -14,13 +14,5 @@
 <body>
 
 <div class="container-fluid bg-dark">
-    <div class="row bg-light d-sm-none navbar">
-        <div class="logo col-6">Dashboard</div>
-        <div class="col-6 menu text-right">
-            <div class="btn-menu">
-                <i class="fas fa-bars"></i>
-            </div>
 
-        </div>
-    </div>
     <div class="row">

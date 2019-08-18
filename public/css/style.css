@@ -77,10 +77,6 @@ body {
   background-color: #eccc68;
 }
 
-.navbar i {
-  font-size: 1.5em;
-}
-
 #sidebar {
   min-height: 100vh;
   padding-top: 5vh;
@@ -203,11 +199,20 @@ body {
     border-radius: 0;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 20px;
+    padding-top: 0;
   }
   #main .col-md-4, #main .col-md-6, #main .col-md-8 {
     margin-bottom: 15px;
   }
+}
+
+#main .navbar {
+  width: 100%;
+  margin-right: 0;
+}
+
+#main .navbar i {
+  font-size: 1.5em;
 }
 
 #main #top-cards {
@@ -381,6 +386,12 @@ body {
           transform: translate(-50%, -50%);
 }
 
+@media (max-width: 768px) {
+  #register .card, #login .card {
+    width: 90vw;
+  }
+}
+
 #register .card .card-body, #login .card .card-body {
   width: 100%;
 }
@@ -395,6 +406,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 50vh;
+}
+
+@media (max-width: 768px) {
+  #register .card .card-body .row .img, #login .card .card-body .row .img {
+    min-height: 30vh;
+    max-height: 30vh;
+    background-position: center 20%;
+  }
 }
 
 #register .card .card-body .row .col-md-7, #login .card .card-body .row .col-md-7 {
