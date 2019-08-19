@@ -4,6 +4,23 @@
             $this->userModel = $this->model('User');
         }
 
+        // Index page
+        public function users() {
+            $link   = URLROOT.$_SERVER['REQUEST_URI'];
+            $pieces = explode("/", $link);
+            $last   = array_pop($pieces);
+
+            $pagination = $this->userModel->pagination();
+            $adduser = $this->addNewUser();
+
+            $data = [
+                'link' => $last,
+                'pagination' => $pagination,
+                'adduser' => $adduser
+            ];
+            $this->view('users/users', $data);
+        }
+
         public function register(){
             // Chech for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -194,59 +211,81 @@
             }
         }
 
-        // public function addNewUser(){
-        //     // Check for post
-        //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //         // Process form
-        //         // Sanitize POST data
-        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        public function addNewUser(){
+            // Check for post
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Process form
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        //         // Init data
-        //         $data = [
-        //             'name'      => trim($_POST['name']),
-        //             'email'     => trim($_POST['email']),
-        //             'password'  => trim($_POST['password']),
-        //             'country'   => trim($_POST['country']),
-        //             'role'      => trim($_POST['role']),
-        //             'email_err' => ''
-        //         ];
+                // Init data
+                $data = [
+                    'name'      => trim($_POST['name']),
+                    'email'     => trim($_POST['email']),
+                    'password'  => trim($_POST['password']),
+                    'country'   => trim($_POST['country']),
+                    'role'      => $_POST['role'],
+                    'email_err' => ''
+                ];
 
-        //         // Validate name
-        //         if(empty($data['email'])){
-        //             if($this->userModel->findUserByEmail($data['email'])){
-        //                 $data['email_err'] = 'Email is already taken';
-        //             }
-        //         }
+                // Validite Name
+                if(empty($data['name'])){
+                    $data['name_err'] = 'Please Enter Name';
+                }
 
-        //         // Make sure errors are empty
-        //         if(empty($data['email_err'])){
-        //             // Hash passowrd
-        //             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+                // Validite Email
+                if(empty($data['email'])){
+                    $data['email_err'] = 'Please Enter Email';
+                } else {
+                    // Check Email
+                    if($this->userModel->findUserByEmail($data['email'])){
+                        $data['email_err'] = 'Email is already taken';
+                    }
+                }
 
-        //             // Add user
-        //             if($this->userModel->adduser($data)) {
-        //                 flash('add_success', 'User added');
-        //                 redirect('pages/users');
-        //             } else {
-        //                 die('something went wrong');
-        //             }
-        //         } else {
-        //             // Load view with errors
-        //             $this->view('pages/users', $data);
-        //         }
-        //     } else {
-        //         // Init data
-        //         $data =[
-        //             'name' => '',
-        //             'email' => '',
-        //             'password' => '',
-        //             'country' => '',
-        //             'role' => '',
-        //             'email_err' => ''
-        //         ];
+                // Validite Password
+                if(empty($data['password'])){
+                    $data['password_err'] = 'Please Enter Password';
+                } elseif(strlen($data['password']) < 6){
+                    $data['password_err'] = 'Password must be at least 6 characters';
+                }
 
-        //          // Load view
-        //          $this->view('pages/users', $data);
-        //     }
-        // }
+                // Validate Country
+                if(empty($data['country'])){
+                    $data['country_err'] = 'Please Enter Country';
+                }
+
+                // Make sure errors are empty
+                if(empty($data['email_err'])){
+                    // Hash passowrd
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                    // Add user
+                    if($this->userModel->adduser($data)) {
+                        flash('add_success', 'User added');
+                        redirect('users/users');
+                    } else {
+                        die('something went wrong');
+                    }
+                } else {
+                    // Load view with errors
+                    return $data;
+                }
+            } else {
+                // Init data
+                $data =[
+                    'name' => '',
+                    'email' => '',
+                    'password' => '',
+                    'country' => '',
+                    'role' => '',
+                    'email_err' => ''
+                ];
+
+                 // Load view
+                 return $data;
+            }
+        }
+
+
     }

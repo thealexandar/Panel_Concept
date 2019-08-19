@@ -36,22 +36,7 @@
             $this->loadJson('roles');
         }
 
-        public function users() {
-            $link   = URLROOT.$_SERVER['REQUEST_URI'];
-            $pieces = explode("/", $link);
-            $last   = array_pop($pieces);
 
-            $pagination = $this->postModel->pagination();
-            $users  = $this->postModel->getAllUsers();
-
-            $data = [
-                'title' => 'users',
-                'link' => $last,
-                'users' => $users,
-                'pagination' => $pagination
-            ];
-            $this->view('pages/users', $data);
-        }
 
 
     }

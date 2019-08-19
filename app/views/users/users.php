@@ -2,15 +2,18 @@
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
         <div id="main" class="col-md-10 offset-md-2">
-        <div class="row bg-light d-sm-none navbar  mb-4">
-            <div class="logo col-6">Dashboard</div>
-            <div class="col-6 menu text-right">
-                <div class="btn-menu">
-                    <i class="fas fa-bars"></i>
+            <div class="row bg-light d-sm-none navbar  mb-4">
+                <div class="logo col-6">Dashboard</div>
+                <div class="col-6 menu text-right">
+                    <div class="btn-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <?php
+                        // print_r($data);
+                        // die();
+                    ?>
                 </div>
-
             </div>
-        </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -25,20 +28,20 @@
                         <form method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Email</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email">
-
+                                <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email" required="required">
+                                <span><?php echo $data['adduser']['email_err']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="Password" name="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                                <input type="Password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Country</label>
-                                <input type="text" name="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Country">
+                                <input type="text" name="country" class="form-control" id="exampleInputPassword1" placeholder="Enter Country" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Role</label>
@@ -49,10 +52,8 @@
                                     <option value="headadmin">Head Admin</option>
                                 </select>
                             </div>
+                            <button type="submit" name="add" class="btn custom-btn">Add</button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn custom-btn">Add</button>
                     </div>
                     </div>
                 </div>
