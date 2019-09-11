@@ -7,7 +7,7 @@ Admin Dashboard Application done with PHP and MySQl as backend and HTML5, CSS3, 
 
 All charts are fully functional and are connected to database.
 
-LIVE DEMO: http://alexandar.napravi.online/users/login
+LIVE DEMO: https://panel-concept.000webhostapp.com
 
 Register new account or login with test account:
 

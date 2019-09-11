@@ -102,7 +102,7 @@
                                 </table>
                             </div>
                             <div class="col-12 text-center">
-                                <a href="<?= URLROOT; ?>/pages/users" class="btn btn-outline-primary custom-btn-outline">View All</a>
+                                <a href="<?= URLROOT; ?>/users/users" class="btn btn-outline-primary custom-btn-outline">View All</a>
                             </div>
 
                         </div>

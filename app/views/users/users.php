@@ -86,8 +86,12 @@
                                             <td><span class="status-<?= $user->role; ?>"><?= $user->role; ?></span></td>
                                             <td><?= $user->created_at; ?></td>
                                             <td>
-                                                <a href="#"><i class="fas fa-trash p-1"></i></a>
-                                                <a href="#"><i class="fas fa-pen p-1"></i></a>
+                                                <form action="<?php echo URLROOT; ?>/users/delete/<?php echo $user->id; ?>" method="post">
+                                                    <input type="submit" value="D">
+                                                </form>
+                                                <a href="#"></a>
+                                                <a href="<?php echo URLROOT;?>/users/show/<?php echo $user->id; ?>"><i class="fas fa-pen p-1"></i></a>
+
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>

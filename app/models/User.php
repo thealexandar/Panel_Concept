@@ -113,13 +113,13 @@
             $this->db->bind(':total_records_per_page', $this->total_records_per_page);
             $res = $this->db->resultSet();
             $data = [
-                'page_no' => $page_no,
-                'previous' => $previous_page,
-                'next' => $next_page,
-                'total_records' => $total_records,
+                'page_no'           => $page_no,
+                'previous'          => $previous_page,
+                'next'              => $next_page,
+                'total_records'     => $total_records,
                 'total_no_of_pages' => $total_no_of_pages,
-                'second_last' => $second_last,
-                'user_data' => $res
+                'second_last'       => $second_last,
+                'user_data'         => $res
             ];
             return $data;
 
@@ -131,6 +131,14 @@
             $res = $this->db->resultSet();
             $total_records = $res[0]->total_records;
             return $total_records;
+        }
+
+        public function getUserById($id){
+            $this->db->query("SELECT * FROM users WHERE id = :id");
+            $this->db->bind(':id', $id);
+            $row = $this->db->single();
+
+            return $row;
         }
 
         public function adduser($data){
@@ -149,10 +157,34 @@
             }
         }
 
-        public function deleteUser($id){
-            $this->db->query("DELETE * FROM users WHERE id = :id");
-            $this->db->bind(":id", $id);
+        public function updateUser($data){
+            $this->db->query("UPDATE users SET name = :name, email = :email, password = :password, country = :country, role = :role WHERE id = :id");
 
+            $this->db->bind(':id', $data['id']);
+            $this->db->bind(':name', $data['name']);
+            $this->db->bind(':email', $data['email']);
+            $this->db->bind(':password', $data['password']);
+            $this->db->bind(':country', $data['country']);
+            $this->db->bind(':role', $data['role']);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function deleteUser($id){
+            $this->db->query('DELETE * FROM users WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            return $this->db->execute();
+
+            // if($this->db->execute()){
+            //     return true;
+            // } else {
+            //     return false;
+            // }
         }
 
 
